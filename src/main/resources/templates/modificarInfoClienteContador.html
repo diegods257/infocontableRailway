@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html xmlns:th="http://www.thymeleaf.org"></html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infocontable</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2287/2287003.png" type="image/gif">
+
+    <!-- Load Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
+
+    <!-- Load Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='/js/main.js'></script>
+</head>
+
+<body onload="setFooterContainer()" id="Fondo_Principal">
+<div class="container-fluid">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark border-3 border-bottom" >
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/api/reportes/listarReportes}">
+                <img src="https://cdn-icons-png.flaticon.com/512/2287/2287003.png" width="50" alt="" loading="lazy">
+                <strong>Infocontable</strong>
+            </a>
+            <div class="btn-nav">
+                <a class="btn btn-primary btn-small navbar-btn" th:href="@{/logout}">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+</div>
+    <div class="breadcrumbs d-flex align-items-center">
+        <div class="container position-relative d-flex flex-column align-items-center">
+            <h2 id="textHeaderAndFooter" class="text-light justify-content-center pb-3 mb-3">Modificar información clientes
+            </h2>
+        </div>
+    </div>
+    <!-- Body -->
+    <div>
+
+        <table class="table table table-sm table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">NIT</th>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Editar cliente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user: ${listUsers}">
+                    <td th:text="${user.nombre}"></td>
+                    <td th:text="${user.apellido}"></td>
+                    <td th:text="${user.nit}"></td>
+                    <td th:text="${user.empresa}"></td>
+                    <td th:text="${user.rol}" ></td>
+                    <td><a th:href="@{/api/usuarios/modificar/{nit} (nit = ${user.nit})}" type="button" class="btn btn-primary">Editar</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="container text-center" id="colorexample">
+        <a type="button" class="btn btn-primary btn-lg btn-block col-6 m-3" th:href="@{/api/usuarios/principal}">Regresar</a>
+    </div>
+
+
+
+    <!-- Footer -->
+    <div id="footer_container">
+
+    </div>
+
+
+
+</body>
+
+</html>

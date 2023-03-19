@@ -1,0 +1,128 @@
+header{
+    margin: auto;
+    padding: 20px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.caja{
+    text-align: center;
+    color: lightcyan;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10px 10px;
+}
+
+#imagenPrincipal{
+    width: 100%;
+}
+
+main{
+    width: auto;
+    margin: 0 auto;
+}
+
+form{
+    margin: 40px 300px 40px 300px;
+    color: white
+}
+
+form label{
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-padron{
+    align-content: center;
+    margin: 0 0 20px 0;
+    padding: 10px 25px;
+    width: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.botones{
+    margin: 0 40px 0 80px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.enviar{
+    width: 30%;
+    padding: 13px 0;
+    margin: 0 5px 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: rgb(72, 67, 104);
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: #0d6efd;
+}
+
+.enviar:active{
+    border-style:outset;
+    border-width: 5px;
+}
+ 
+.borrar{
+    width: 30%;
+    padding: 13px 0;
+    margin: 0 5px 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: rgb(72, 67, 104);
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: #0d6efd;
+}
+
+
+.borrar:active{
+    border-style:outset;
+    border-width: 5px;
+}
+
+.regresar{
+    width: auto;
+    padding: 14px 0px;
+    margin: 0 5px 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: rgb(72, 67, 104);
+    border-radius: 5px;
+    transition: 1s background;
+    cursor: pointer;
+    border:2px solid #0d6efd;
+    text-decoration: none;
+    
+}
+
+.regresar:active{
+    border-style:outset;
+    border-width: 5px;
+}
+
+
+button{
+    color: white;
+    
+}
+
+footer{
+    text-align: center;
+    padding:80px 80px 80px 80px;
+    color: white
+}
+
+nav a{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-color: red;
+}
+
+.pie{
+    padding: 50px;
+}

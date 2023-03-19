@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infocontable</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2287/2287003.png" type="image/gif">
+
+    <!-- Load Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
+
+    <!-- Load Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='/js/main.js'></script>
+</head>
+
+<body onload="setFooterContainer()" id="Fondo_Principal">
+<div class="container-fluid">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark border-3 border-bottom" >
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/api/reportes/listarReportes}">
+                <img src="https://cdn-icons-png.flaticon.com/512/2287/2287003.png" width="50" alt="" loading="lazy">
+                <strong>Infocontable</strong>
+            </a>
+            <div class="btn-nav">
+                <a class="btn btn-primary btn-small navbar-btn" th:href="@{/logout}">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+</div>
+    <div>
+        <div class="breadcrumbs d-flex align-items-center">
+            <div class="container position-relative d-flex flex-column align-items-center">
+                <h2 id="textHeaderAndFooter" class="text-light justify-content-center pb-3 mb-3">Mis Registros Contables</h2>
+            </div>
+        </div>
+        <div class="container text-center">
+            <div class="container position-relative d-flex flex-column align-items-center">
+                <h1 id="textHeaderAndFooter" class="h3 mb-3 fw-normal text-light">Bienvenido <b>[[${#request.userPrincipal.principal.fullName}]]</b></h1>
+            </div>
+        </div>
+        <!-- Body -->
+        <main class="form-signin w-80 m-auto">
+        <div>
+            <div class="row">
+                <div id="body_container" class="col m-5">
+                    <table class="table table-sm table-dark table-striped table-bordered" id="tbreportes">
+                        <thead>
+                        <tr>
+                            <th scope="col">Tipo de soporte</th>
+                            <th scope="col">No. soporte</th>
+                            <th scope="col">No. cuenta</th>
+                            <th scope="col">Metodo de pago</th>
+                            <th scope="col">Valor Total</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Identificacion del tercero</th>
+                            <th scope="col">Nombre del tercero</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Comentarios</th>
+                            <th scope="col" >Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="reporte : ${reportes}" th:if="${reporte.user.nit} == ${#request.userPrincipal.principal.getUserNit}">
+                            <td th:text="${reporte.reporteContableId.tipo_soporte}"></td>
+                            <td th:text="${reporte.reporteContableId.num_soporte}"></td>
+                            <td th:text="${reporte.num_cuenta}"></td>
+                            <td th:text="${reporte.metodo_pago}"></td>
+                            <td th:text="${reporte.valor}"></td>
+                            <td th:text="${reporte.fecha}"></td>
+                            <td th:text="${reporte.reporteContableId.id_tercero}"></td>
+                            <td th:text="${reporte.nombre_tercero}"></td>
+                            <td th:text="${reporte.descripcion}"></td>
+                            <td th:text="${reporte.comentarios}"></td>
+                            <td>
+
+                                <a th:href="@{/api/reportes/editarReporte/{tipo}/{num}/{id}
+                                (tipo = ${reporte.reporteContableId.tipo_soporte},
+                                num = ${reporte.reporteContableId.num_soporte},
+                                id = ${reporte.reporteContableId.id_tercero})}"
+                                   type="button" class="btn btn-primary">Editar</a>
+
+                                <a th:href="@{/api/reportes/eliminarReporte/{tipo}/{num}/{id}
+                                (tipo = ${reporte.reporteContableId.tipo_soporte},
+                                num = ${reporte.reporteContableId.num_soporte},
+                                id = ${reporte.reporteContableId.id_tercero})}"
+                                   onclick="return confirm('Estas seguro de querer eliminar este registro?');"
+                                   type="button" class="btn btn-danger">Eliminar</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                        <!--width 50 -->
+                            <div class="container text-center" id="colorexample" >
+                                <a class="btn btn-primary btn-lg btn-block col-6 m-3" th:href="@{/api/reportes/ingresarReporte}">Registrar movimiento contable</a>
+                            </div>
+
+                </div>
+            </div>
+        </div>
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <div id="footer_container"></div>
+</body>
+
+</html>

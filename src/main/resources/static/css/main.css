@@ -1,0 +1,64 @@
+#mi_id {
+  background: rgb(59, 12, 30);
+}
+
+#Fondo_Principal {
+  background-image: url('../img/about4.jpg');
+
+}
+
+label.form{
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+}
+
+.btn.btn-primary.btn-small.navbar-btn{
+  background-color: rgb(72, 67, 104);
+  border-color: rgb(72, 67, 104);
+}
+.border-bottom{
+  border-color:rgb(72 67 104)!important;
+}
+
+#Fondo_Secundario{
+  background-image:  url('../img/about3.jpg');
+
+}
+
+#textHeaderAndFooter{
+  color: lightcyan !important;
+
+}
+
+#tbreportes th,td
+{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn-primary.btn-lg.btn-block.col-6.m-3, .btn.btn-primary.btn-lg.btn-block.col-4.mb-3{
+  background-color: rgb(72, 67, 104); 
+}
+
+
+#validationDefault02 {
+  background-color: aliceblue;
+  
+}
+
+#colorTextReporte {
+  color: rgb(255, 254, 254);
+}
+
+.table.table-sm.table-dark{
+border-color: rgb(72, 67, 104);
+}
+
+table td {
+  color: rgb(206, 206, 216);
+
+}
+
+table th{
+  color: rgb(255, 255, 255);
+}
